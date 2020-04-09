@@ -1,0 +1,29 @@
+
+REM Started "Set Realmlist API v 1.0"
+exit /b
+:SetRealmlist <realmLocation> <server> <realmName> <accountName>
+	setlocal enabledelayedexpansion enableextensions
+
+	set realmListFileName=realmlist.wtf
+
+	set realmLocation=%1
+	set server=%2
+	set realmName=%3
+	set accountName=%4
+
+	if not [%realmLocation:~-14,-1%]==[%realmListFileName%] set realmLocation=%realmLocation%%realmListFileName%
+
+	echo SET realmlist %server%>%realmLocation%
+
+	if not [%realmName%]==[] echo.SET realmName %realmName%>>%realmLocation%
+	if not [%accountName%]==[] echo.SET accountName %accountName%>>%realmLocation%
+
+	call :file_directory_from_path realmlistFolder %realmLocation%
+	set wowFolder=%realmlistFolder%..\..
+	start "" "%wowFolder%\Wow.exe"
+exit /b
+
+:file_directory_from_path <resultVar> <pathVar>
+    set "%~1=%~dp2"
+exit /b
+REM End of "Set Realmlist API v 1.0"
