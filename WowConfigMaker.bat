@@ -28,8 +28,8 @@ set configFileLocation=%~dp0%realmlist%
 if defined accountName set configFileLocation=%configFileLocation%-%accountName%
 set configFileLocation=%configFileLocation:"=%.bat
 
-echo call :SetRealmlist "%realmlistLocation%" "%realmlist%" "%realmName%" "%accountName%">%configFileLocation%
-
+echo @echo off>%configFileLocation%
+echo call :SetRealmlist "%realmlistLocation%" "%realmlist%" "%realmName%" "%accountName%">>%configFileLocation%
 type %setRealmlistInjection% >> %configFileLocation% 
 
 echo.

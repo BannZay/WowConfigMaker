@@ -13,6 +13,8 @@ exit /b
 
 	if not [%realmLocation:~-14,-1%]==[%realmListFileName%] set realmLocation=%realmLocation%%realmListFileName%
 
+	attrib -s -r %realmLocation%
+
 	echo SET realmlist %server%>%realmLocation%
 
 	if not [%realmName%]==[] echo.SET realmName %realmName%>>%realmLocation%
