@@ -63,5 +63,5 @@ exit /b
 :are_you_sure <success>
 	SET /P AREYOUSURE=Are you sure (Y/[N])?
 	IF /I "%AREYOUSURE%"=="Y" set %1=1& exit /b
-	IF /I "%AREYOUSURE%"=="N" set %1=0% exit /b
+	IF /I "%AREYOUSURE%"=="N" set %1=0& exit /b
 goto :are_you_sure
