@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableDelayedExpansion
-set setRealmlistInjection=%~dp0SetRealmlist.batInjection
+set setRealmlistInjection="%~dp0SetRealmlist.batInjection"
 set interactive=0
 
 call :check_installation success
@@ -26,11 +26,11 @@ set realmlistLocation=%wowFolderLocation%Data\%locale%\realmlist.wtf
 
 set configFileLocation=%~dp0%realmlist%
 if defined accountName set configFileLocation=%configFileLocation%-%accountName%
-set configFileLocation=%configFileLocation:"=%.bat
+set configFileLocation="%configFileLocation:"=%.bat"
 
 echo @echo off>%configFileLocation%
 echo call :SetRealmlist "%realmlistLocation%" "%realmlist%" "%realmName%" "%accountName%">>%configFileLocation%
-type %setRealmlistInjection% >> %configFileLocation% 
+type %setRealmlistInjection% >> %configFileLocation%
 
 echo.
 echo New Config created:
