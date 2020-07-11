@@ -1,5 +1,4 @@
-
-REM Started "Set Realmlist API v 1.0"
+REM Started "Set Realmlist API v 1.0". Updates can be found at https://github.com/BannZay/WowConfigMaker
 exit /b
 :SetRealmlist <realmLocation> <server> <realmName> <accountName>
 	setlocal enabledelayedexpansion enableextensions
@@ -13,6 +12,11 @@ exit /b
 
 	if not [%realmLocation:~-14,-1%]==[%realmListFileName%] set realmLocation=%realmLocation%%realmListFileName%
 
+	if not exist %realmLocation% (
+		echo Realmlist was not found at %1. It was deleted/moved or this script was generated for another PC
+		pause
+		exit /b)
+		
 	attrib -s -r %realmLocation%
 
 	echo SET realmlist %server%>%realmLocation%
